@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Index page
+{% endblock title %}
+{% block body %}
+<br>
+<a class="btn btn-primary" href="{% url 'catalog:addbook_url' %}" style="margin-left: 15px;">+ Add book</a>
+<br>
+<div class="container-fluid">
+    <div class="container">
+        <div class="row text-center">
+            
+            
+        {% if books %}
+            {% for n in books %}
+                <div class="col"><a href="{% url 'catalog:book_detail' pk=n.pk %}"><img src="{{ MEDIA_URL }}{{ n.image }}" width="240px" height="320px"></a><h5><br><a href="{% url 'catalog:book_detail' pk=n.pk %}">{{ n.title }}</a></h5>{{ n.description }}<hr></div>
+            {% endfor %}
+                
+        {% elif author %}
+            {% for a in author %}
+            <div class="col"><img src="{{ MEDIA_URL }}{{ a.photo }}" width="160px" height="220px"><h5><br>{{ a.first_name }}</h5>{{ a.last_name }}<hr></div> 
+            {% endfor %}
+        
+        {% endif %}
+            
+        </div>
+    </div>
+</div>
+</div>
+{% endblock body %}
+    
+    

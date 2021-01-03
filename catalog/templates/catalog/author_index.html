@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    Authors
+{% endblock title %}
+    
+
+
+{% block body %}
+    
+
+<br>
+
+<a class="btn btn-secondary" href="{% url 'catalog:author_url' %}" style="margin-left: 15px;">+ Add Author</a>
+
+<div class="container-fluid">
+    <div class="container">
+        <div class="row text-center">
+            
+            {% for a in author %}
+            
+           
+            <div class="col"><img src="{{ MEDIA_URL }}{{ a.photo }}" width="150px" height="200px"><h5><br>{{ a.first_name }}</h5>{{ a.last_name }}    
+            <br>  <br>    <strong>Books:</strong> 
+            {% for b in a.book.all %}
+                {{ b }}
+            {% endfor %}
+                 <hr></div>
+                
+            {% endfor %}
+                
+        </div>
+    </div>
+</div>
+
+{% endblock body %}
+    

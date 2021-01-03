@@ -1,0 +1,18 @@
+.h1_nan {
+    color: darkgoldenrod;
+    padding-left: 60px;
+}
+.imga {
+    width: 400px;
+    height: 550px;
+    border: 3px solid #500909;
+    margin-bottom: 10px;
+}
+.description {
+    line-height: 24px;
+    margin-left: 25px;
+}
+.h_2 {
+    margin-top: 30px;
+    margin-left: 430px;
+}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block title %}
+    Add Book
+{% endblock %}
+    
+
+
+
+{% block body %}
+<div class="container">
+    <h1>Add book</h1>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        {% for field in form %}
+            <div class="form-group">
+                
+                {% if field.errors %}
+                    <div class="alert alert-danger">
+                        {{ field.errors }}
+                    </div>
+                {% endif %}
+
+                <h2>
+                    {{ field.label }}
+                </h2>
+                    
+                    {{ field }}
+            </div>
+        {% endfor %}
+            <button class="btn btn-primary" value="submit">Add Book</button>
+    </form>
+</div>
+
+
+{% endblock %}
+    

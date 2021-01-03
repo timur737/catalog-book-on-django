@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+
+
+
+
+{% block title %}
+{{ book.title }}
+{% endblock title %}
+
+
+
+{% block body %}
+<br>
+<br>
+<h1 class="h1_nan">
+    {{ book.title }}
+</h1>
+<div class="container">
+    <div class="d-flex">
+        <div>
+            <img src="{{ book.image.url }}" class="imga">
+            <div class="aa">
+                <a class="btn btn-primary" href="{% url 'catalog:edit' pk=book.pk %}">Edit</a>
+                <a class="btn btn-danger" href="{% url 'catalog:delete' pk=book.pk %}">Delete</a>
+            </div>
+        </div>
+        <div>
+            <div class="description">{{ book.description }}</div>
+            <h2 class="h_2">
+                <strong>Authors:</strong>
+                {% for au in book.author_set.all %}
+                {{ au }}, 
+                {% endfor %}
+            </h2>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}
