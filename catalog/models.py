@@ -8,16 +8,12 @@ class AddBook(models.Model):
         """Meta definition for AddBook."""
         verbose_name = 'AddBook'
         verbose_name_plural = 'AddBooks'
+        
     title = models.CharField(max_length=240)
     description = models.TextField()
     image = models.ImageField(upload_to='user_book/', blank=True)
-<<<<<<< HEAD
-    file_book = models.FileField(upload_to='file_book', max_length=100, null=True)
-
-
-=======
     file_book = models.FileField(upload_to='file_book', null=True)
->>>>>>> 39e7b0952d18fd18f9c7623588d8861253362041
+    
     def __str__(self):
         """Unicode representation of AddBook."""
         return self.title
@@ -33,11 +29,13 @@ class Author(models.Model):
         """Meta definition for Author.""" 
         verbose_name = 'Author'
         verbose_name_plural = 'Authors'
+        
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=80)
     was_born = models.DateField()
     photo = models.ImageField(upload_to='author_book/', blank=True)
     book = models.ManyToManyField(AddBook)
+    
     def __str__(self):
         """Unicode representation of Author."""
         return f'{self.first_name} {self.last_name}'
